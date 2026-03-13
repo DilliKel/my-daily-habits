@@ -16,7 +16,7 @@ function App() {
     <>
       <Header />
       <main>
-        <BemVindo nomeUsuario="Aluno" totalHabitos={habits.length} />
+        <BemVindo nomeUsuario="Kelvin" totalHabitos={habits.length} />
         <SecaoHabitos titulo="Meus Hábitos">
           <HabitList habits={habits} />
         </SecaoHabitos>
