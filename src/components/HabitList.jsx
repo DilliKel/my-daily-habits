@@ -1,16 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import HabitCard from './HabitCard'
 
+const initialHabits = [
+  { id: 1, nome: 'Exercício', descricao: 'Treino de força', meta: 5, ativo: true, diasFeitos: 5 },
+  { id: 2, nome: 'Leitura', descricao: 'Livro ou artigo', meta: 7, ativo: true, diasFeitos: 3 },
+  { id: 3, nome: 'Meditação', descricao: 'Respiração e foco', meta: 7, ativo: false, diasFeitos: 0 },
+  { id: 4, nome: 'Hidratação', descricao: 'Beber 2L de água', meta: 7, ativo: true, diasFeitos: 6 },
+]
+
 function HabitList() {
-  const [habits, setHabits] = useState([
-    { id: 1, nome: 'Exercício', descricao: 'Treino de força', meta: 5, ativo: true, diasFeitos: 5 },
-    { id: 2, nome: 'Leitura', descricao: 'Livro ou artigo', meta: 7, ativo: true, diasFeitos: 3 },
-    { id: 3, nome: 'Meditação', descricao: 'Respiração e foco', meta: 7, ativo: false, diasFeitos: 0 },
-    { id: 4, nome: 'Hidratação', descricao: 'Beber 2L de água', meta: 7, ativo: true, diasFeitos: 6 },
-  ])
+  const [habits, setHabits] = useState(() => {
+    const stored = localStorage.getItem('my-daily-habits')
+
+    if (!stored) {
+      return initialHabits
+    }
+
+    try {
+      return JSON.parse(stored)
+    } catch {
+      return []
+    }
+  })
   const [novoNome, setNovoNome] = useState('')
   const [novaDescricao, setNovaDescricao] = useState('')
   const [novaCategoria, setNovaCategoria] = useState('')
+
+  useEffect(() => {
+    localStorage.setItem('my-daily-habits', JSON.stringify(habits))
+  }, [habits])
 
   const removerHabit = (id) => {
     setHabits((currentHabits) => currentHabits.filter((habit) => habit.id !== id))
