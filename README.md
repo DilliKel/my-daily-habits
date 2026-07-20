@@ -6,6 +6,9 @@ O My Daily Habits resolve a necessidade de registrar e acompanhar a manutenção
 Este projeto foi desenvolvido como desafio final do módulo 04 do curso de Desenvolvimento Full Stack (ITEAM), mais especificamente para a matéria de Desenvolvimento Frontend com React.  
 Fui o líder do squad (4 pessoas), delegando tarefas a cada integrante conforme suas habilidades. Atuei como principal responsável pelo frontend, arquitetando a aplicação e codificando a maior parte do projeto.
 
+---
+📦 Veja também: [kanban-projetos](https://github.com/DilliKel/kanban-projetos) — outro projeto do Módulo 04 · ITEAM React
+---
 ## Funcionalidades
 - [x] Cadastro de novos hábitos (para manter ou abandonar)
 - [x] Edição e exclusão de hábitos registrados
